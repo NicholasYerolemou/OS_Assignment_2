@@ -1,0 +1,50 @@
+Time: 0000000000 Kernel: SysCall(EXECVE, name="tests/Test2B/programA.prg")
+createProfile(process(pid=1, state=READY, name="tests/Test2B/programA.prg"))
+Time: 0000000001 Kernel: Context Switch {Idle}, process(pid=1, state=READY, name="tests/Test2B/programA.prg")).
+Time: 0000000004 Kernel: SysCall complete
+Time: 0000000004 Kernel: SysCall(EXECVE, name="tests/Test2B/programB.prg")
+createProfile(process(pid=2, state=READY, name="tests/Test2B/programB.prg"))
+Time: 0000000005 Kernel: SysCall complete
+Time: 0000000504 Kernel: Interrupt(TIME_OUT, process(pid=1, state=RUNNING, name="tests/Test2B/programA.prg"))
+Time: 0000000505 Kernel: Context Switch process(pid=1, state=READY, name="tests/Test2B/programA.prg"), process(pid=2, state=READY, name="tests/Test2B/programB.prg")).
+Time: 0000000508 Kernel: Interrupt exit
+Time: 0000001008 Kernel: Interrupt(TIME_OUT, process(pid=2, state=RUNNING, name="tests/Test2B/programB.prg"))
+Time: 0000001009 Kernel: Context Switch process(pid=2, state=READY, name="tests/Test2B/programB.prg"), process(pid=1, state=READY, name="tests/Test2B/programA.prg")).
+Time: 0000001012 Kernel: Interrupt exit
+Time: 0000001512 Kernel: Interrupt(TIME_OUT, process(pid=1, state=RUNNING, name="tests/Test2B/programA.prg"))
+Time: 0000001513 Kernel: Context Switch process(pid=1, state=READY, name="tests/Test2B/programA.prg"), process(pid=2, state=READY, name="tests/Test2B/programB.prg")).
+Time: 0000001516 Kernel: Interrupt exit
+Time: 0000002016 Kernel: Interrupt(TIME_OUT, process(pid=2, state=RUNNING, name="tests/Test2B/programB.prg"))
+Time: 0000002017 Kernel: Context Switch process(pid=2, state=READY, name="tests/Test2B/programB.prg"), process(pid=1, state=READY, name="tests/Test2B/programA.prg")).
+Time: 0000002020 Kernel: Interrupt exit
+Time: 0000002021 Kernel: SysCall(IO_REQUEST, device(id=1), duration=1000, process(pid=1, state=RUNNING, name="tests/Test2B/programA.prg"))
+Time: 0000002022 Kernel: Context Switch process(pid=1, state=WAITING, name="tests/Test2B/programA.prg"), process(pid=2, state=READY, name="tests/Test2B/programB.prg")).
+Time: 0000002025 Kernel: SysCall complete
+Time: 0000002525 Kernel: Interrupt(TIME_OUT, process(pid=2, state=RUNNING, name="tests/Test2B/programB.prg"))
+Time: 0000002526 Kernel: Interrupt exit
+Time: 0000003022 Kernel: Interrupt(WAKE_UP, device(id=1), process(pid=1, state=WAITING, name="tests/Test2B/programA.prg"))
+Time: 0000003023 Kernel: Interrupt exit
+Time: 0000003026 Kernel: Interrupt(TIME_OUT, process(pid=2, state=RUNNING, name="tests/Test2B/programB.prg"))
+Time: 0000003027 Kernel: Context Switch process(pid=2, state=READY, name="tests/Test2B/programB.prg"), process(pid=1, state=READY, name="tests/Test2B/programA.prg")).
+Time: 0000003030 Kernel: Interrupt exit
+Time: 0000003530 Kernel: Interrupt(TIME_OUT, process(pid=1, state=RUNNING, name="tests/Test2B/programA.prg"))
+Time: 0000003531 Kernel: Context Switch process(pid=1, state=READY, name="tests/Test2B/programA.prg"), process(pid=2, state=READY, name="tests/Test2B/programB.prg")).
+Time: 0000003534 Kernel: Interrupt exit
+Time: 0000004034 Kernel: Interrupt(TIME_OUT, process(pid=2, state=RUNNING, name="tests/Test2B/programB.prg"))
+Time: 0000004035 Kernel: Context Switch process(pid=2, state=READY, name="tests/Test2B/programB.prg"), process(pid=1, state=READY, name="tests/Test2B/programA.prg")).
+Time: 0000004038 Kernel: Interrupt exit
+Time: 0000004538 Kernel: SysCall(TERMINATE_PROCESS, process(pid=1, state=RUNNING, name="tests/Test2B/programA.prg"))
+Time: 0000004539 Kernel: Context Switch process(pid=1, state=TERMINATED, name="tests/Test2B/programA.prg"), process(pid=2, state=READY, name="tests/Test2B/programB.prg")).
+Time: 0000004542 Kernel: SysCall complete
+Time: 0000005042 Kernel: Interrupt(TIME_OUT, process(pid=2, state=RUNNING, name="tests/Test2B/programB.prg"))
+Time: 0000005043 Kernel: Interrupt exit
+Time: 0000005044 Kernel: SysCall(TERMINATE_PROCESS, process(pid=2, state=RUNNING, name="tests/Test2B/programB.prg"))
+Time: 0000005045 Kernel: Context Switch process(pid=2, state=TERMINATED, name="tests/Test2B/programB.prg"), {Idle}).
+Time: 0000005048 Kernel: SysCall complete
+Done
+System time: 5048
+Kernel time: 48
+User time: 5000
+Idle time: 0
+Context switches: 11
+CPU utilization: 99.05

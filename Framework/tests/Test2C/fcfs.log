@@ -1,0 +1,30 @@
+Time: 0000000000 Kernel: SysCall(MAKE_DEVICE, id=1,name="disk")
+Time: 0000000001 Kernel: SysCall complete
+Time: 0000000000 Kernel: SysCall(EXECVE, name="Test2C/programA.prg")
+Time: 0000000001 Kernel: Context Switch {Idle}, process(pid=1, state=READY, name="Test2C/programA.prg")).
+Time: 0000000004 Kernel: SysCall complete
+Time: 0000000004 Kernel: SysCall(EXECVE, name="Test2C/programB.prg")
+Time: 0000000005 Kernel: SysCall complete
+Time: 0000001005 Kernel: SysCall(IO_REQUEST, device(id=1), duration=2000, process(pid=1, state=RUNNING, name="Test2C/programA.prg"))
+Time: 0000001006 Kernel: Context Switch process(pid=1, state=WAITING, name="Test2C/programA.prg"), process(pid=2, state=READY, name="Test2C/programB.prg")).
+Time: 0000001009 Kernel: SysCall complete
+Time: 0000001509 Kernel: SysCall(IO_REQUEST, device(id=1), duration=1000, process(pid=2, state=RUNNING, name="Test2C/programB.prg"))
+Time: 0000001510 Kernel: Context Switch process(pid=2, state=WAITING, name="Test2C/programB.prg"), {Idle}).
+Time: 0000001513 Kernel: SysCall complete
+Time: 0000003006 Kernel: Interrupt(WAKE_UP, device(id=1), process(pid=1, state=WAITING, name="Test2C/programA.prg"))
+Time: 0000003007 Kernel: Context Switch {Idle}, process(pid=1, state=READY, name="Test2C/programA.prg")).
+Time: 0000003010 Kernel: Interrupt exit
+Time: 0000004006 Kernel: Interrupt(WAKE_UP, device(id=1), process(pid=2, state=WAITING, name="Test2C/programB.prg"))
+Time: 0000004007 Kernel: Interrupt exit
+Time: 0000004011 Kernel: SysCall(TERMINATE_PROCESS, process(pid=1, state=RUNNING, name="Test2C/programA.prg"))
+Time: 0000004012 Kernel: Context Switch process(pid=1, state=TERMINATED, name="Test2C/programA.prg"), process(pid=2, state=READY, name="Test2C/programB.prg")).
+Time: 0000004015 Kernel: SysCall complete
+Time: 0000005015 Kernel: SysCall(TERMINATE_PROCESS, process(pid=2, state=RUNNING, name="Test2C/programB.prg"))
+Time: 0000005016 Kernel: Context Switch process(pid=2, state=TERMINATED, name="Test2C/programB.prg"), {Idle}).
+Time: 0000005019 Kernel: SysCall complete
+System time: 5019
+Kernel time: 26
+User time: 3500
+Idle time: 1493
+Context switches: 6
+CPU utilization: 69.74

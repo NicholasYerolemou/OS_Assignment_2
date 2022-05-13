@@ -1,0 +1,30 @@
+*** Simulator ***
+Configuration file name? tests/Test1E/config.cfg
+Kernel name? SJFKernel
+Enter kernel parameters (if any) as a comma-separated list:
+Cost of system call? 1
+Cost of context switch: 3
+Trace level (0-31)? 31
+Instantiating kernel with supplied parameters...
+Building configuration...
+Running simulation...
+Time: 0000000000 Kernel: SysCall(EXECVE, name="tests/Test1E/programA.prg")
+Time: 0000000001 Kernel: Context Switch {Idle}, process(pid=1, state=READY, name="tests/Test1E/programA.prg")).
+Time: 0000000004 Kernel: SysCall complete
+Time: 0000000004 Kernel: SysCall(EXECVE, name="tests/Test1E/programB.prg")
+Time: 0000000005 Kernel: SysCall complete
+Time: 0000006005 Kernel: SysCall(TERMINATE_PROCESS, process(pid=1, state=RUNNING, name="tests/Test1E/programA.prg"))
+Time: 0000006006 Kernel: Context Switch process(pid=1, state=TERMINATED, name="tests/Test1E/programA.prg"), process(pid=2, state=READY, name="tests/Test1E/programB.prg")).
+Time: 0000006009 Kernel: SysCall complete
+Time: 0000012009 Kernel: SysCall(TERMINATE_PROCESS, process(pid=2, state=RUNNING, name="tests/Test1E/programB.prg"))
+Time: 0000012010 Kernel: Context Switch process(pid=2, state=TERMINATED, name="tests/Test1E/programB.prg"), {Idle}).
+Time: 0000012013 Kernel: SysCall complete
+Done
+System time: 12013
+Kernel time: 13
+User time: 12000
+Idle time: 0
+Context switches: 3
+CPU utilization: 99.89
+Write execution profile to CSV? Enter a file name or press return:
+tests/Test1E/sjf.csv

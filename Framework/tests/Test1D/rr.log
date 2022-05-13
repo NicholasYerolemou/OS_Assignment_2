@@ -1,0 +1,32 @@
+Time: 0000000000 Kernel: SysCall(EXECVE, name="Test1D/programA.prg")
+Time: 0000000001 Kernel: Context Switch {Idle}, process(pid=1, state=READY, name="Test1D/programA.prg")).
+Time: 0000000004 Kernel: SysCall complete
+Time: 0000000004 Kernel: SysCall(EXECVE, name="Test1D/programB.prg")
+Time: 0000000005 Kernel: SysCall complete
+Time: 0000001004 Kernel: Interrupt(TIME_OUT, process(pid=1, state=RUNNING, name="Test1D/programA.prg"))
+Time: 0000001005 Kernel: Context Switch process(pid=1, state=READY, name="Test1D/programA.prg"), process(pid=2, state=READY, name="Test1D/programB.prg")).
+Time: 0000001008 Kernel: Interrupt exit
+Time: 0000002008 Kernel: Interrupt(TIME_OUT, process(pid=2, state=RUNNING, name="Test1D/programB.prg"))
+Time: 0000002009 Kernel: Context Switch process(pid=2, state=READY, name="Test1D/programB.prg"), process(pid=1, state=READY, name="Test1D/programA.prg")).
+Time: 0000002012 Kernel: Interrupt exit
+Time: 0000003012 Kernel: Interrupt(TIME_OUT, process(pid=1, state=RUNNING, name="Test1D/programA.prg"))
+Time: 0000003013 Kernel: Context Switch process(pid=1, state=READY, name="Test1D/programA.prg"), process(pid=2, state=READY, name="Test1D/programB.prg")).
+Time: 0000003016 Kernel: Interrupt exit
+Time: 0000004016 Kernel: Interrupt(TIME_OUT, process(pid=2, state=RUNNING, name="Test1D/programB.prg"))
+Time: 0000004017 Kernel: Context Switch process(pid=2, state=READY, name="Test1D/programB.prg"), process(pid=1, state=READY, name="Test1D/programA.prg")).
+Time: 0000004020 Kernel: Interrupt exit
+Time: 0000005020 Kernel: Interrupt(TIME_OUT, process(pid=1, state=RUNNING, name="Test1D/programA.prg"))
+Time: 0000005021 Kernel: Context Switch process(pid=1, state=READY, name="Test1D/programA.prg"), process(pid=2, state=READY, name="Test1D/programB.prg")).
+Time: 0000005024 Kernel: Interrupt exit
+Time: 0000006024 Kernel: SysCall(TERMINATE_PROCESS, process(pid=2, state=RUNNING, name="Test1D/programB.prg"))
+Time: 0000006025 Kernel: Context Switch process(pid=2, state=TERMINATED, name="Test1D/programB.prg"), process(pid=1, state=READY, name="Test1D/programA.prg")).
+Time: 0000006028 Kernel: SysCall complete
+Time: 0000006029 Kernel: SysCall(TERMINATE_PROCESS, process(pid=1, state=RUNNING, name="Test1D/programA.prg"))
+Time: 0000006030 Kernel: Context Switch process(pid=1, state=TERMINATED, name="Test1D/programA.prg"), {Idle}).
+Time: 0000006033 Kernel: SysCall complete
+System time: 6033
+Kernel time: 33
+User time: 6000
+Idle time: 0
+Context switches: 8
+CPU utilization: 99.45

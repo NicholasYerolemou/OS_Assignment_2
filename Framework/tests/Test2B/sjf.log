@@ -1,0 +1,38 @@
+*** Simulator ***
+Configuration file name? tests/Test2B/config.cfg
+Kernel name? SJFKernel
+Enter kernel parameters (if any) as a comma-separated list:
+Cost of system call? 1
+Cost of context switch: 3
+Trace level (0-31)? 31
+Instantiating kernel with supplied parameters...
+Building configuration...
+Time: 0000000000 Kernel: SysCall(MAKE_DEVICE, id=1, name="disk")
+Time: 0000000001 Kernel: SysCall complete
+Running simulation...
+Time: 0000000000 Kernel: SysCall(EXECVE, name="tests/Test2B/programA.prg")
+Time: 0000000001 Kernel: Context Switch {Idle}, process(pid=1, state=READY, name="tests/Test2B/programA.prg")).
+Time: 0000000004 Kernel: SysCall complete
+Time: 0000000004 Kernel: SysCall(EXECVE, name="tests/Test2B/programB.prg")
+Time: 0000000005 Kernel: SysCall complete
+Time: 0000001005 Kernel: SysCall(IO_REQUEST, device(id=1), duration=1000, process(pid=1, state=RUNNING, name="tests/Test2B/programA.prg"))
+Time: 0000001006 Kernel: Context Switch process(pid=1, state=WAITING, name="tests/Test2B/programA.prg"), process(pid=2, state=READY, name="tests/Test2B/programB.prg")).
+Time: 0000001009 Kernel: SysCall complete
+Time: 0000002006 Kernel: Interrupt(WAKE_UP, device(id=1), process(pid=1, state=WAITING, name="tests/Test2B/programA.prg"))
+Time: 0000002007 Kernel: Context Switch process(pid=2, state=READY, name="tests/Test2B/programB.prg"), process(pid=1, state=READY, name="tests/Test2B/programA.prg")).
+Time: 0000002010 Kernel: Interrupt exit
+Time: 0000003010 Kernel: SysCall(TERMINATE_PROCESS, process(pid=1, state=RUNNING, name="tests/Test2B/programA.prg"))
+Time: 0000003011 Kernel: Context Switch process(pid=1, state=TERMINATED, name="tests/Test2B/programA.prg"), process(pid=2, state=READY, name="tests/Test2B/programB.prg")).
+Time: 0000003014 Kernel: SysCall complete
+Time: 0000005017 Kernel: SysCall(TERMINATE_PROCESS, process(pid=2, state=RUNNING, name="tests/Test2B/programB.prg"))
+Time: 0000005018 Kernel: Context Switch process(pid=2, state=TERMINATED, name="tests/Test2B/programB.prg"), {Idle}).
+Time: 0000005021 Kernel: SysCall complete
+Done
+System time: 5021
+Kernel time: 21
+User time: 5000
+Idle time: 0
+Context switches: 5
+CPU utilization: 99.58
+Write execution profile to CSV? Enter a file name or press return:
+tests/Test2B/sjf.csv
